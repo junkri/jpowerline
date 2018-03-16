@@ -1,6 +1,7 @@
 package hu.junaszka.jpowerline.segment.impl;
 
 import hu.junaszka.jpowerline.segment.Segment;
+import hu.junaszka.jpowerline.segment.SegmentPart;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,6 +18,10 @@ public class GitSegment implements Segment {
   private Map<String, Git> gitMap = new HashMap<>();
 
   @Override
+  public SegmentPart[] getSegmentParts(String path) {
+    return new SegmentPart[]{new SegmentPart("", 0, 0)};
+  }
+
   public String getSegment(String path) {
     Git git = null;
     if (gitMap.containsKey(path)) {
